@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal</title>
+    <link rel="stylesheet" href="/style/style.css">
+</head>
+<body>
+    <h1>JavaScript Modal Box</h1>
+
+    <button class="show_modal">Show Modal</button>
+    <div class="modal">
+        <div class="overlay">
+
+        </div>
+        <div class="content">
+            <button class="close_modal">&times;</button>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector('.show_modal').addEventListener('click', function() {
+            document.querySelector('.modal').style.display = "block";
+        })
+        document.querySelector('.close_modal').addEventListener('click', function() {
+            document.querySelector('.modal').style.display = "none";
+        })
+    </script>
+</body>
+</html>

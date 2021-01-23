@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+
+<body>
+    <h1>
+        JavaScript Calculator
+    </h1>
+    <p id="err" style="color: blue; font-weight: bold;"></p>
+    <input id="num_one" type="text" placeholder="Enter Your Number">
+    <select id="sing">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="x">x</option>
+        <option value="/">/</option>
+        <option value="%">%</option>
+    </select>
+    <input id="num_two" type="text" placeholder="Enter Your Number">
+    <button id="calculate" type="submit">=</button>
+    <span id="output"></span>
+
+    <script>
+        var num_one = document.querySelector('#num_one');
+        var num_two = document.querySelector('#num_two');
+        var sign = document.querySelector('#sing');
+        var calculate = document.querySelector('#calculate');
+        var output = document.querySelector('#output');
+        var err = document.querySelector('#err');
+        var ans;
+
+        calculate.addEventListener('click', function () {
+            if (num_one.value == "" && num_two.value == "") {
+                err.innerHTML = "Please Enter The Number!";
+            } else {
+                if (num_one.value == "") {
+                    err.innerHTML = "Please Enter The NumOne!";
+                } else {
+                    if (num_two.value == "") {
+                        err.innerHTML = "Please Enter The NumTwo!";
+                    } else {
+                        err.innerHTML = "";
+
+                        switch (sign.value) {
+                            case '+':
+                                ans = parseInt(num_one.value) + parseInt(num_two.value);
+                                break;
+                            case '-':
+                                ans = parseInt(num_one.value) - parseInt(num_two.value);
+                                break;
+                            case 'x':
+                                ans = parseInt(num_one.value) * parseInt(num_two.value);
+                                break;
+                            case '/':
+                                ans = parseInt(num_one.value) / parseInt(num_two.value);
+                                break;
+                            case '%':
+                                ans = parseInt(num_one.value) % parseInt(num_two.value);
+                                break;
+                            default:
+                                console.log("error");
+                                break;
+                        }
+                        output.innerHTML = ans;
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

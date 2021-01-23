@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Slider</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .slider_content{
+            width: 500px;
+            height: 300px;
+            margin: 100px auto;
+        }
+
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">
+        JavaScript Slider Exercise!
+    </h1>
+    <div class="slider_content">
+        <img src="/images/slide_1.jpg" width="100%" alt="" srcset="">
+        <img src="/images/slide_2.jpg" width="100%" alt="" srcset="">
+        <img src="/images/slide_3.jpg" width="100%" alt="" srcset="">
+    </div>
+
+    <script>
+        var slide_index = 0;
+        slider();
+
+        function slider() {
+            var slide_images = document.querySelector('.slider_content').children;
+            for (let i = 0; i < slide_images.length; i++) {
+                slide_images[i].style.cssText = "display:none;";
+            }
+            slide_index++;
+            if (slide_index > slide_images.length) {
+                slide_index = 1;
+            }
+            slide_images[slide_index-1].style.cssText = "display:block;border-radius:20px;";
+            setTimeout(slider, 2000);
+        }
+    </script>
+</body>
+</html>
